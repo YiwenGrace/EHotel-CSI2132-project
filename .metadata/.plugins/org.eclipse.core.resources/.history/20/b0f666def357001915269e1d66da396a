@@ -1,0 +1,140 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="eHotel.entities.Room"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Start Booking</title>
+</head>
+<body>
+	<%
+		String CusName = (String) request.getAttribute("CusName");
+	%>
+	<form method="post" action="roombook">
+		<h3>
+			Welcome,
+			<%=CusName%></h3>
+			<br>
+				<h4>Here are the room(s) you booked</h4>
+				<ul>
+					<%
+						Object obj1 = request.getAttribute("bookedRooms");
+						ArrayList<Room> broomList = null;
+						if (obj1 instanceof ArrayList) {
+							broomList = (ArrayList<Room>) obj1;
+						}
+						if (broomList != null) {
+							for (Room room : broomList) {
+								String roominfo = room.getRoom_no() + "---" + room.getRoom_status();
+					%>
+					<li><%=roominfo%></li>
+					<%
+						}
+						}
+					%>
+				</ul>
+				<input type="hidden" name="cusName" value="<%=CusName%>" />
+				
+				<h4>Start booking a new room:</h4>
+				
+				<br>
+				<h4>Select city: </h4>
+				
+				<select name = "City">
+					<%
+						Object obj = request.getAttribute("allCity");
+						ArrayList<Room> cityList = null;
+						if (obj instanceof ArrayList) {
+							cityList = (ArrayList<Room>) obj;
+						}
+						if (cityList != null) {
+							for (Room city : cityList) {
+								
+					%>					
+						<option>----</option>
+						<option><%=city.getCity()%></option>
+
+					<%
+						}
+						}
+					%>
+				</select>
+				
+				
+				<br>
+				<h4>Select hotel chain: </h4>
+				
+				<select name = "HotelChain">
+					<%
+						Object obj = request.getAttribute("allHotelChain");
+						ArrayList<Room> hotelchList = null;
+						if (obj instanceof ArrayList) {
+							hotelchList = (ArrayList<Room>) obj;
+						}
+						if (hotelchList != null) {
+							for (Room hotelch : hotelchList) {
+								
+					%>					
+						<option>----</option>
+						<option><%=hotelch.getHotelChainAdd()%></option>
+
+					<%
+						}
+						}
+					%>
+				</select>
+				
+				<br>
+				<h4>Select hotel category: </h4>
+				
+				<select name = "HotelCategory">
+					<%
+						Object obj = request.getAttribute("allHotelCategory");
+						ArrayList<Room> hotelcateList = null;
+						if (obj instanceof ArrayList) {
+							hotelcateList = (ArrayList<Room>) obj;
+						}
+						if (hotelcateList != null) {
+							for (Room hotelcate : hotelcateList) {
+								
+					%>					
+						<option>----</option>
+						<option><%=hotelcate.getHotelCategory()%></option>
+
+					<%
+						}
+						}
+					%>
+				</select>
+				
+				<br>
+				<h4>Select hotel: </h4>
+				
+				<select name = "Hotel">
+					<%
+						Object obj = request.getAttribute("allHotel");
+						ArrayList<Room> hotelList = null;
+						if (obj instanceof ArrayList) {
+							hotelList = (ArrayList<Room>) obj;
+						}
+						if (hotelList != null) {
+							for (Room hotel : hotelList) {
+								
+					%>					
+						<option>----</option>
+						<option><%=hotel.getHotelAdd()%></option>
+
+					<%
+						}
+						}
+					%>
+				</select>
+				
+				
+				
+				<button type="submit" onclick="return confirm('book?');">book</button>
+	</form>
+</body>
+</html>

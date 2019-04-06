@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Employee Login</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="ch-cn">
+<script>
+
+	function validate() {
+		var ename = document.getElementById("ename");
+		var epass = document.getElementById("epass");
+		if(ename.value == ""){
+			alert("username can't be null");
+			return false;
+		}
+		
+		else if(epass.value ==""){
+			alert("password can't be null");
+			return false;
+		}
+		else
+			return true;
+	}
+
+</script>
+</head>
+<body>
+Hi there, please login as an employee.
+<br>
+	<form method="post" action="logintest">
+		user name:<input type="text" id="ename" name="username"><br>
+		<br> password:<input type="password" id="epass" name="pwd"><br>
+		<br>
+		<button type="submit" value="submit" onclick="return validate();">submit</button>
+		<button type="reset" value="reset">reset</button>
+	</form>
+</body>
+</html>

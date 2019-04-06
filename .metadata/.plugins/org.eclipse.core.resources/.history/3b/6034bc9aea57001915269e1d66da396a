@@ -1,0 +1,69 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="eHotel.entities.Room"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Start Booking</title>
+</head>
+<body>
+	<%
+		String CusName = (String) request.getAttribute("CusName");
+	%>
+	<form method="post" action="roombook">
+		<h3>
+			Welcome,
+			<%=CusName%></h3>
+			<br>
+				<h4>Here are the room(s) you booked</h4>
+				<ul>
+					<%
+						Object obj1 = request.getAttribute("bookedRooms");
+						ArrayList<Room> broomList = null;
+						if (obj1 instanceof ArrayList) {
+							broomList = (ArrayList<Room>) obj1;
+						}
+						if (broomList != null) {
+							for (Room room : broomList) {
+								String roominfo = room.getRoom_no() + "---" + room.getRoom_status();
+					%>
+					<li><%=roominfo%></li>
+					<%
+						}
+						}
+					%>
+				</ul>
+				<input type="hidden" name="cusName" value="<%=CusName%>" />
+				
+				<h4>Start booking a new room:</h4>
+				
+				<br>
+				<h4> </h4>
+				
+				<select name = "HotelChain">
+					<%
+						Object obj = request.getAttribute("allHotelChain");
+						ArrayList<Room> hotelchList = null;
+						if (obj instanceof ArrayList) {
+							hotelchList = (ArrayList<Room>) obj;
+						}
+						if (hotelchList != null) {
+							for (Room hotelch : hotelchList) {
+								/* String roominfo = room.getRoom_no() + "---" + room.getRoom_status(); */
+					%>					
+						<option><%=hotelch.getHotelChainAdd()%></option>
+
+					<%
+						}
+						}
+					%>
+				</select>
+				
+				
+				
+				<button type="submit" onclick="return confirm('book?');">book</button>
+	</form>
+</body>
+</html>

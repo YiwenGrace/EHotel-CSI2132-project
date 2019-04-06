@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Customer Registration</title>
+<script>
+
+	function validate() {
+		var cusSIN = document.getElementById("cusSIN");
+		var cusName = document.getElementById("cusName");
+		var cusPwd = document.getElementById("cusPwd");
+		var cusPwdagain = document.getElementById("cusPwdagain");
+		if(cusSIN.value == "" || cusName.value == "" || cusPwd.value == "" || cusPwdagain.value == "" ){
+			alert("Please fill in all blanks!");
+			return false;
+		}
+		
+		else if(cusSIN.value.length != 9){
+			alert("The length of SIN needs to be 9!");
+			return false;
+		}
+		
+		else if(cusPwd.value != cusPwdagain.value){
+			alert("The passwords need to be same");
+			return false;
+		}
+		else
+			return true;
+	}
+
+</script>
+</head>
+<body>
+<form method = "post" action="cusRegister">
+please input your SIN:<input type="text" id="cusSIN" name="cusSIN"><br><br>
+please input your name:<input type="text" id="cusName" name="cusName"><br><br>
+please input your password:<input type="password" id="cusPwd" name="cusPwd"><br><br>
+please input your password again:<input type="password" id="cusPwdagain" name="cusPwdagain"><br><br>
+<button type="submit" value="submit" onclick="return validate();">submit</button>
+<button type="reset" value="reset">reset</button>
+</form>
+</body>
+</html>

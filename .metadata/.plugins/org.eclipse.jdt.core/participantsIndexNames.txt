@@ -1,0 +1,7 @@
+INDEX VERSION 1.131
+D:\UOttawa\CSI2132\project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\299816223.index
+\lab7\src
+D:\UOttawa\CSI2132\project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\653694191.index
+\firstwebproject\src
+D:\UOttawa\CSI2132\project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4015643992.index
+\eHotel\src

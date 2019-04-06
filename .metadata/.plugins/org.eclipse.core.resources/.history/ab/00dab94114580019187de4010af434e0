@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert new employee</title>
+<script>
+
+	function validate() {
+		var empSIN = document.getElementById("empSIN");
+		var empName = document.getElementById("empName");
+		var empPwd = document.getElementById("empPwd");
+		var empAddr = document.getElementById("empAddr");
+		var empHotelAddr = document.getElementById("empAddr");
+		var empPos = document.getElementById("empPos");
+		if(empSIN.value == "" || empName.value == "" || empPwd.value == "" || empAddr.value == "" || empHotelAddr.value == "" || empPos.value == "" ){
+			alert("Please fill in all blanks!");
+			return false;
+		}
+		
+		else if(empSIN.value.length != 9){
+			alert("The length of SIN needs to be 9!");
+			return false;
+		}
+		
+		else if(cusPwd.value != cusPwdagain.value){
+			alert("The passwords need to be same");
+			return false;
+		}
+		else
+			return true;
+	}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

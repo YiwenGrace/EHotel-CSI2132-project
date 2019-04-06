@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Customer</title>
+</head>
+<body>
+Hi there,
+	<br>
+		<button onclick="location.href='customer_register.html'">Register</button>
+		<button onclick="location.href='customer_login.html'">Login</button>
+</body>
+</html>
